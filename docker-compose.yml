@@ -1,0 +1,18 @@
+services:
+
+  database:
+    image: postgres:18.0-alpine
+    container_name: local-stack-db-itmentorcommunityplatform
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: it_mentor_community_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    name: local-stack-postgres-data-itmentorcommunityplatform
