@@ -13,6 +13,15 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  gateway:
+    image: ghcr.io/it-mentor-community-platform/gateway/gateway:dev
+    container_name: local-stack-gateway-itmentorcommunityplatform
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-stack
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     name: local-stack-postgres-data-itmentorcommunityplatform
