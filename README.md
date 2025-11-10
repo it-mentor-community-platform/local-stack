@@ -19,6 +19,7 @@ database:5432).
   - пароль: `password`
   - Имя БД схемы: `it_mentor_community_platform`
 * **Gateway**
+    - внутреннее название/порт: `gateway:8080`
     - внешний порт: `8080`
 * **Auth service**
     - внешний порт: `8081`
@@ -31,8 +32,42 @@ database:5432).
 - Docker Compose
 
 ## Инструкция по запуску контейнеров
+- Убедитесь, что Docker и Docker Compose установлены.
+- В корне проекта выполните:
+    ```sh
+    docker compose pull
+    docker compose up -d
+    ```
+    или
+    ```sh
+    docker compose up -d --pull always
+    ```
+  Ключ `--pull always` необходим для того, чтобы перед запуском образы обновлялись до последней версии.
 
+### Приватный репозиторий
+  ```sh
+     ✘ Error Head "https://ghcr.io/v2/it-mentor-community-platform/.../dev": unauthorized
+    Error response from daemon: Head "https://ghcr.io/v2/it-mentor-community-platform/.../dev": unauthorized
+  ```
+Если вы увидите подобное сообщение, значит репозиторий GitHub Container Registry приватный, и вам нужно
+ваш докер авторизовать на ghrc.io, а так же иметь права доступа к этому репозиторию. <br>
+Что бы залогиниться используйте команду
+  ```shell
+    echo "YOUR_GITHUB_TOKEN" | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin
+  ```
+или
+  ```shell
+    docker login ghcr.io -u YOUR_GITHUB_USERNAME -p YOUR_GITHUB_TOKEN
+  ```
+**Что бы создать GITHUB_TOKEN (PAT)**
 
+1. Перейдите: https://github.com/settings/tokens
+2. Generate new token → Classic
+3. Выбери права:
+   - read:packages — обязательно (для скачивания)
+   - write:packages — если будешь пушить
+   - delete:packages — если нужно удалять
+4. Скопируй токен (он покажется только один раз)
 
 ## Ссылки на репозиторий документации
 - [Окружения и профили](https://github.com/it-mentor-community-platform/meta/blob/main/system-analytics/environments-and-profiles.md)
