@@ -14,6 +14,9 @@ local.properties
 .loadpath
 .recommenders
 
+# Secrets and environment variables
+credentials.json
+
 # External tool builders
 .externalToolBuilders/
 

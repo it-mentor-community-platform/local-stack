@@ -22,6 +22,18 @@ services:
       - "8080:8080"
     restart: unless-stopped
 
+  data-importer:
+    image: ghcr.io/it-mentor-community-platform/data-importer/data-importer:dev
+    container_name: local-stack-dataimporter-itmentorcommunityplatform
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-stack
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+    volumes:
+      - ./credentials.json:/app/credentials.json:ro
+    ports:
+      - "8082:8080"
+    restart: unless-stopped
+
   auth-service:
     image: ghcr.io/it-mentor-community-platform/auth-service/auth-service:dev
     container_name: local-stack-auth-service
