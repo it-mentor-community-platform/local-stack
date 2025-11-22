@@ -54,6 +54,15 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
     restart: unless-stopped
 
+  profile-service:
+    image: ghcr.io/it-mentor-community-platform/profile-service/profile-service:dev
+    container_name: local-stack-profile-service-itmentorcommunityplatform
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-stack
+    ports:
+      - "8083:8080"
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     name: local-stack-postgres-data-itmentorcommunityplatform
