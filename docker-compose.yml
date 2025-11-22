@@ -54,6 +54,17 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
     restart: unless-stopped
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: local-stack-grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
 volumes:
   postgres_data:
     name: local-stack-postgres-data-itmentorcommunityplatform
