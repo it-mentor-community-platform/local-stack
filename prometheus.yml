@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'gateway'
+    metrics_path: '/actuator/prometheus'
+    basic_auth:
+      username: 'prometheus'
+      password: 'password'
+    static_configs:
+      - targets: ['gateway:8080']
+
+  - job_name: 'auth-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['auth-service:8080']
+
+  - job_name: 'data-importer'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['data-importer:8080']
