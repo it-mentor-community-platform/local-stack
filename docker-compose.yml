@@ -54,6 +54,17 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
     restart: unless-stopped
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: local-stack-grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+      
   profile-service:
     image: ghcr.io/it-mentor-community-platform/profile-service/profile-service:dev
     container_name: local-stack-profile-service-itmentorcommunityplatform
