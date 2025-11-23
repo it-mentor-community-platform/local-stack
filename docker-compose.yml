@@ -47,7 +47,7 @@ services:
       - database
 
   prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v3.7.3
     container_name: local-stack-prometheus
     ports:
       - "9090:9090"
@@ -56,7 +56,7 @@ services:
     restart: unless-stopped
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:12.3.0
     container_name: local-stack-grafana
     ports:
       - "3000:3000"
