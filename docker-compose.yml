@@ -91,6 +91,18 @@ services:
       KAFKA_LOG_DIRS: "/var/lib/kafka/data"
     restart: unless-stopped
 
+  kafka-ui:
+    image: provectuslabs/kafka-ui:v0.7.2
+    container_name: local-stack-kafka-ui
+    ports:
+      - "8088:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    depends_on:
+      - kafka
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     name: local-stack-postgres-data-itmentorcommunityplatform
