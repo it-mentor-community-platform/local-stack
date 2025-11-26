@@ -48,6 +48,7 @@ database:5432).
 - Docker
 - Docker Compose
 
+
 ## Инструкция по запуску контейнеров
 - Для сервиса Data Importer необходим файл credentials.json. Запроси его у тимлида и скопируй в корень проекта.
 - Убедитесь, что Docker и Docker Compose установлены.
@@ -86,6 +87,14 @@ database:5432).
    - write:packages — если будешь пушить
    - delete:packages — если нужно удалять
 4. Скопируй токен (он покажется только один раз)
+
+## Секреты
+
+Все секреты можно устанавливать как переменные окружения в терминале, где вы запускаете compose стек, или через .env файл в папке с docker-compose файлом.
+
+### TELEGRAM_BOT_TOKEN
+
+Инструкция по получению и использованию токена описана в README.md auth-service по  [ссылке](https://github.com/it-mentor-community-platform/auth-service?tab=readme-ov-file#%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-telegram).
 
 ## Ссылки на репозиторий документации
 - [Окружения и профили](https://github.com/it-mentor-community-platform/meta/blob/main/system-analytics/environments-and-profiles.md)
