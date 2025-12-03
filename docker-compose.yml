@@ -82,6 +82,7 @@ services:
     ports:
       - "29092:29092"
     environment:
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: "broker,controller"
       KAFKA_LISTENERS: >
