@@ -85,6 +85,15 @@ services:
       - "8084:8080"
     restart: unless-stopped
 
+  mentor-service:
+    image: ghcr.io/it-mentor-community-platform/mentor-service:dev
+    container_name: local-stack-mentor-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-stack
+    ports:
+      - "8085:8080"
+    restart: unless-stopped
+
   kafka:
     image: apache/kafka:3.7.0
     container_name: local-stack-kafka
