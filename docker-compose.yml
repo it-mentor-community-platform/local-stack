@@ -86,7 +86,7 @@ services:
     restart: unless-stopped
 
   mentor-service:
-    image: ghcr.io/it-mentor-community-platform/mentor-service:dev
+    image: ghcr.io/it-mentor-community-platform/mentor-service/mentor-service:dev
     container_name: local-stack-mentor-service
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
