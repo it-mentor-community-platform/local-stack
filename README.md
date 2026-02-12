@@ -95,6 +95,15 @@ database:5432).
 
 Все секреты можно устанавливать как переменные окружения в терминале, где вы запускаете compose стек, или через .env файл в папке с docker-compose файлом.
 
+Для сервиса Data Importer необходимо получить содержимое credentials.json (из GitHub Secrets или у тимлида).
+- В корне проекта создайте файл .env
+- Добавьте переменную и вставьте в неё весь JSON:
+   ```env
+   GOOGLE_APPLICATION_CREDENTIALS_JSON={"type": "service_account", ...}
+   ```
+- **Важно**: JSON должен быть в одну строку. Чтобы быстро это сделать в IDEA: выделите JSON и нажми Ctrl + Shift + J.
+
+
 ### TELEGRAM_BOT_TOKEN
 
 Инструкция по получению и использованию токена описана в README.md auth-service по  [ссылке](https://github.com/it-mentor-community-platform/auth-service?tab=readme-ov-file#%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-telegram).

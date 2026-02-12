@@ -28,9 +28,7 @@ services:
     container_name: local-stack-dataimporter-itmentorcommunityplatform
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
-      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
-    volumes:
-      - ./credentials.json:/app/credentials.json:ro
+      - GOOGLE_APPLICATION_CREDENTIALS_JSON=${GOOGLE_APPLICATION_CREDENTIALS_JSON}
     ports:
       - "8082:8080"
     restart: unless-stopped
