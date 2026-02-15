@@ -20,6 +20,11 @@ scrape_configs:
     static_configs:
       - targets: ['data-importer:8080']
 
+  - job_name: 'mentor-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'mentor-service:8080' ]
+
   - job_name: 'profile-service'
     metrics_path: '/actuator/prometheus'
     static_configs:
