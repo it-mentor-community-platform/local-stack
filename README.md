@@ -33,6 +33,9 @@ database:5432).
 * **Mentor service**
     - внутреннее название/порт: `mentor-service:8080`
     - внешний порт: `8085`
+* **Job market analytics service**
+    - внутреннее название/порт: `job-market-analytics-service:8080`
+    - внешний порт: `8086`
 * **Prometheus**
     - внутреннее название/порт: `prometheus:9090`
     - внешний порт: `9090`
