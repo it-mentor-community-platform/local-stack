@@ -92,6 +92,15 @@ services:
       - "8085:8080"
     restart: unless-stopped
 
+  job-market-analytics-service:
+    image: ghcr.io/it-mentor-community-platform/job-market-analytics-service/job-market-analytics-service:dev
+    container_name: local-stack-job-market-analytics-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-stack
+    ports:
+      - "8086:8080"
+    restart: unless-stopped
+
   kafka:
     image: apache/kafka:3.7.0
     container_name: local-stack-kafka
