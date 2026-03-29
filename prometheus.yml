@@ -34,3 +34,8 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['project-service:8080']
+
+  - job_name: 'job-market-analytics-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['job-market-analytics-service:8080' ]
