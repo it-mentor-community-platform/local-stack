@@ -101,6 +101,15 @@ services:
       - "8086:8080"
     restart: unless-stopped
 
+  telegram-bot-adapter:
+    image: ghcr.io/it-mentor-community-platform/telegram-bot-adapter/telegram-bot-adapter:dev
+    container_name: local-stack-telegram-bot-adapter
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-stack
+    ports:
+      - "8087:8080"
+    restart: unless-stopped
+
   kafka:
     image: apache/kafka:3.7.0
     container_name: local-stack-kafka
