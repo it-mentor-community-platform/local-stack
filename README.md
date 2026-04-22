@@ -36,6 +36,9 @@ database:5432).
 * **Job market analytics service**
     - внутреннее название/порт: `job-market-analytics-service:8080`
     - внешний порт: `8086`
+* **Telegram bot adapter**
+  - внутреннее название/порт: `telegram-bot-adapter:8080`
+  - внешний порт: `8087`
 * **Prometheus**
     - внутреннее название/порт: `prometheus:9090`
     - внешний порт: `9090`
