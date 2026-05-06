@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   gateway:
-    image: ghcr.io/it-mentor-community-platform/gateway/gateway${ARCH:-}
+    image: ghcr.io/it-mentor-community-platform/gateway/gateway:dev${ARCH:-}
     container_name: local-stack-gateway-itmentorcommunityplatform
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
