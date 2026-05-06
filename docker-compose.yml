@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   gateway:
-    image: ghcr.io/it-mentor-community-platform/gateway/gateway:dev
+    image: ghcr.io/it-mentor-community-platform/gateway/gateway${ARCH:-}
     container_name: local-stack-gateway-itmentorcommunityplatform
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
 
   data-importer:
-    image: ghcr.io/it-mentor-community-platform/data-importer/data-importer:dev
+    image: ghcr.io/it-mentor-community-platform/data-importer/data-importer:dev${ARCH:-}
     container_name: local-stack-dataimporter-itmentorcommunityplatform
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
 
   auth-service:
-    image: ghcr.io/it-mentor-community-platform/auth-service/auth-service:dev
+    image: ghcr.io/it-mentor-community-platform/auth-service/auth-service:dev${ARCH:-}
     container_name: local-stack-auth-service
     ports:
       - "8081:8080"
@@ -66,7 +66,7 @@ services:
       - prometheus
       
   profile-service:
-    image: ghcr.io/it-mentor-community-platform/profile-service/profile-service:dev
+    image: ghcr.io/it-mentor-community-platform/profile-service/profile-service:dev${ARCH:-}
     container_name: local-stack-profile-service-itmentorcommunityplatform
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
@@ -75,7 +75,7 @@ services:
     restart: unless-stopped
 
   project-service:
-    image: ghcr.io/it-mentor-community-platform/project-service/project-service:dev
+    image: ghcr.io/it-mentor-community-platform/project-service/project-service:dev${ARCH:-}
     container_name: local-stack-project-service-itmentorcommunityplatform
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
@@ -84,7 +84,7 @@ services:
     restart: unless-stopped
 
   mentor-service:
-    image: ghcr.io/it-mentor-community-platform/mentor-service/mentor-service:dev
+    image: ghcr.io/it-mentor-community-platform/mentor-service/mentor-service:dev${ARCH:-}
     container_name: local-stack-mentor-service
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
@@ -93,16 +93,18 @@ services:
     restart: unless-stopped
 
   job-market-analytics-service:
-    image: ghcr.io/it-mentor-community-platform/job-market-analytics-service/job-market-analytics-service:dev
+    image: ghcr.io/it-mentor-community-platform/job-market-analytics-service/job-market-analytics-service:dev${ARCH:-}
     container_name: local-stack-job-market-analytics-service
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
+      - HH_APP_ACCESS_TOKEN=${HH_APP_ACCESS_TOKEN}
+      - HH_APP_EMAIL=${HH_APP_EMAIL}
     ports:
       - "8086:8080"
     restart: unless-stopped
 
   telegram-bot-adapter:
-    image: ghcr.io/it-mentor-community-platform/telegram-bot-adapter/telegram-bot-adapter:dev
+    image: ghcr.io/it-mentor-community-platform/telegram-bot-adapter/telegram-bot-adapter:dev${ARCH:-}
     container_name: local-stack-telegram-bot-adapter
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
