@@ -109,9 +109,10 @@ database:5432).
 
 Для сервиса Data Importer необходимо получить содержимое credentials.json (из GitHub Secrets или у тимлида).
 - В корне проекта создайте файл .env
-- Добавьте переменную и вставьте в неё весь JSON:
+- Добавьте переменные и вставьте данные JSON и токен:
    ```env
    GOOGLE_APPLICATION_CREDENTIALS_JSON={"type": "service_account", ...}
+   TELEGRAM_BOT_TOKEN=телеграм_токен_из_секретов
    ```
 - **Важно**: JSON должен быть в одну строку. Чтобы быстро это сделать в IDEA: выделите JSON и нажми Ctrl + Shift + J.
 
