@@ -39,7 +39,7 @@ database:5432).
 * **Telegram bot adapter**
   - внутреннее название/порт: `telegram-bot-adapter:8080`
   - внешний порт: `8087`
-**Interval repetition service**
+* **Interval repetition service**
   - внутреннее название/порт: `interval-repetition-service:8080`
   - внешний порт: `8088`
 * **Prometheus**
@@ -116,6 +116,8 @@ database:5432).
    ```env
    GOOGLE_APPLICATION_CREDENTIALS_JSON={"type": "service_account", ...}
    TELEGRAM_BOT_TOKEN=телеграм_токен_из_секретов
+   HH_APP_ACCESS_TOKEN=hh_app_access_token_из_секретов
+   HH_APP_EMAIL=hh_app_email_из_секретов
    ```
 - **Важно**: JSON должен быть в одну строку. Чтобы быстро это сделать в IDEA: выделите JSON и нажми Ctrl + Shift + J.
 
