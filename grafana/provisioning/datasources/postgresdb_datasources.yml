@@ -1,0 +1,16 @@
+datasources:
+  - name: Postgresql_datasource
+    type: postgres
+    uid: GhzMNppVk
+    url: ${DB_HOST}:${DB_PORT}
+    user: ${DB_USER}
+    secureJsonData:
+      password: ${DB_PASSWORD}
+    jsonData:
+      database: ${DB_NAME}
+      sslmode: 'disable'
+      maxOpenConns: 0
+      maxIdleConns: 2
+      connMaxLifetime: 14400
+      postgresVersion: 1500
+      timescaledb: false
