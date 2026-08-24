@@ -1,16 +1,18 @@
+apiVersion: 1
+
 datasources:
   - name: Postgresql_datasource
     type: postgres
     uid: GhzMNppVk
-    url: ${DB_HOST}:${DB_PORT}
-    user: ${DB_USER}
+    url: local-stack-db-itmentorcommunityplatform:5432
+    user: root
     secureJsonData:
-      password: ${DB_PASSWORD}
+      password: password
     jsonData:
-      database: ${DB_NAME}
-      sslmode: 'disable'
+      database: it_mentor_community_platform
+      sslmode: disable
       maxOpenConns: 0
       maxIdleConns: 2
       connMaxLifetime: 14400
-      postgresVersion: 1500
+      postgresVersion: 1800
       timescaledb: false
