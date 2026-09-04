@@ -90,9 +90,6 @@ services:
       - SPRING_PROFILES_ACTIVE=local-stack
     ports:
       - "8085:8080"
-    dns:
-      - 8.8.8.8
-      - 1.1.1.1
     restart: unless-stopped
 
   job-market-analytics-service:
