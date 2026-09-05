@@ -39,3 +39,11 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['job-market-analytics-service:8080' ]
+
+  - job_name: 'it-mentor-community-bot'
+    metrics_path: '/metrics'
+    basic_auth:
+      username: 'prometheus'
+      password: 'password'
+    static_configs:
+      - targets: ['it-mentor-community-bot:8080']
