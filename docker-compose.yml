@@ -145,8 +145,8 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_CONTROLLER_QUORUM_VOTERS: "1@127.0.0.1:9093"
-      KAFKA_CLUSTER_ID: "YWJhY2RlZmdoaWprbG1u"
       KAFKA_LOG_DIRS: "/var/lib/kafka/data"
+      CLUSTER_ID: "YWJhY2RlZmdoaWprbG1u"
     restart: unless-stopped
 
   kafka-ui:
