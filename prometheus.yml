@@ -47,3 +47,8 @@ scrape_configs:
       password: 'password'
     static_configs:
       - targets: ['it-mentor-community-bot:8080']
+
+  - job_name: 'telegram-bot-adapter'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['telegram-bot-adapter:8080']
