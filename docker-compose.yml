@@ -112,6 +112,13 @@ services:
       - "8087:8080"
     restart: unless-stopped
 
+  telegram-miniapp-frontend:
+    image: ghcr.io/it-mentor-community-platform/telegram-miniapp-frontend/telegram-miniapp-frontend:dev${ARCH:-}
+    container_name: local-stack-telegram-miniapp-frontend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
 
   interval-repetition-service:
     image: ghcr.io/it-mentor-community-platform/interval-repetition-service:dev
