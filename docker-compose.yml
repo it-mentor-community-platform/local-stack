@@ -121,7 +121,7 @@ services:
 
 
   interval-repetition-service:
-    image: ghcr.io/it-mentor-community-platform/interval-repetition-service:dev
+    image: ghcr.io/it-mentor-community-platform/interval-repetition-service/interval-repetition-service:dev${ARCH:-}
     container_name: local-stack-interval-repetition-service
     environment:
       - SPRING_PROFILES_ACTIVE=local-stack
